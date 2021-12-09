@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/board/updateBoard.do}" th:object=${board} method="post">
+		<table>
+				<tr>
+					<td>번호</td>
+					<td th:text="${board.boardIdx}"></td> 
+					<td>제목</td>
+					<td><input type="text" name="title" th:field="${board.title}"></td>
+					<td>작성자</td>
+					<td th:text="${board.memId}"></td>
+					<td>조회수</td>
+					<td th:text="${board.viewCount}"></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td colspan="6"><textarea name="content" th:field="${board.content}"></textarea></td>
+				</tr>
+		</table>
+		<a th:href="@{/board/list.do}"><label>목록</label></a> 
+		<button type="submit">수정</button>
+	</form>
+
+</body>
+</html>

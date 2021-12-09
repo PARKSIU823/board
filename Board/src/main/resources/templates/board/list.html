@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<span th:text="${totalCount}">게시글 수 </span>
+	<table>
+		<thead>
+			<tr>
+				<td>번호</td>
+				<td>제목</td>
+				<td>작성자</td>
+				<td>작성일</td>
+				<td>조회수</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="boardList : ${boardList}">
+				<td><span th:text="${boardList.boardIdx}">번호</span></td>
+				<td><a th:href="@{/board/getBoard.do(boardIdx=${boardList.boardIdx})}"><span th:text="${boardList.title}">제목</span></a></td>
+				<td><span th:text="${boardList.memId}">작성자</span></td>
+				<td><span th:text="${boardList.insertTime}">작성일</span></td>
+				<td><span th:text="${boardList.viewCount}">조회수</span></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
