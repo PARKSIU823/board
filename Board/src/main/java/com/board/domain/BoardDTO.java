@@ -2,7 +2,10 @@ package com.board.domain;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -10,8 +13,11 @@ import lombok.Setter;
  * @author PARKSIU
  */
 
+@Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class BoardDTO {
 
 	/**
@@ -78,4 +84,5 @@ public class BoardDTO {
 	 *  삭제여부
 	 */
 	private String deleteYn;
+	
 }
