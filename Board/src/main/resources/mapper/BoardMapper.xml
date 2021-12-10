@@ -80,4 +80,10 @@
 			, delete_time = NOW()
 		WHERE board_idx = #{boardIdx}
 	</update>
+	
+	<update id="updateViewCount" parameterType="int">
+		UPDATE TB_BOARD
+		SET view_count = view_count + 1
+		WHERE board_idx = #{boardIdx}
+	</update>
 </mapper>

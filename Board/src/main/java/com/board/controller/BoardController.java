@@ -53,6 +53,9 @@ public class BoardController {
 		modelAndView.setViewName("board/read");
 		
 		BoardDTO board = boardService.getBoard(boardIdx);
+		if(board !=null) {
+			boardService.updateViewCount(boardIdx);
+		}
 		modelAndView.addObject("board", board);
 		
 		return modelAndView;

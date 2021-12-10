@@ -51,5 +51,10 @@ public class BoardServiceImpl implements BoardService{
 		return (result == 1 ) ? true : false;
 	}
 
+	@Override
+	public void updateViewCount(int boardIdx) {
+		boardMapper.updateViewCount(boardIdx);		
+	}
+
 
 }

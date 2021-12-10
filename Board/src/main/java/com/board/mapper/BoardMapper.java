@@ -49,4 +49,11 @@ public interface BoardMapper {
 	 * @return
 	 */
 	public int deleteBoard(BoardDTO board);
+	
+	/**
+	 * 게시글 조회 수 증가
+	 * @param viewCount
+	 * @return
+	 */
+	public int updateViewCount(int boardIdx);
 }

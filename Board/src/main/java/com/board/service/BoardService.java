@@ -17,4 +17,6 @@ public interface BoardService {
 	public boolean updateBoard(BoardDTO board);
 	
 	public boolean deleteBoard(BoardDTO board);
+	
+	public void updateViewCount(int boardIdx);
 }
