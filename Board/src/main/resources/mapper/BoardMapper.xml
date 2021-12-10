@@ -32,8 +32,8 @@
 			, NOW()
 			, NULL
 			, NULL
-			, #{noticeYn}
-			, #{secretYn}
+			, IFNULL(#{noticeYn},'N')
+			, IFNULL(#{secretYn},'N')
 			, 'N'
 		)
 	</insert>
@@ -67,8 +67,8 @@
 			, content = #{content}
 			, upt_mem_id = #{memId}
 			, update_time = NOW()
-			, notice_yn = #{noticeYn}
-			, secret_yn = #{secretYn}
+			, notice_yn = IFNULL(#{noticeYn},'N')
+			, secret_yn = IFNULL(#{secretYn},'N')
 		WHERE board_idx = #{boardIdx}
 	</update>
 	

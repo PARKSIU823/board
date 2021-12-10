@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Board : 본문 페이지</title>
 </head>
 <body>
 	<table>
@@ -23,6 +23,7 @@
 	</table>
 	<a th:href="@{/board/list.do}"><label>목록</label></a> 
 	<a th:href="@{/board/goModify.do(boardIdx=${board.boardIdx})}"><label>수정</label></a> 
+	<a th:href="@{/board/deleteBoard.do(boardIdx=${board.boardIdx})}"><label>삭제</label></a>
 
 </body>
 </html>

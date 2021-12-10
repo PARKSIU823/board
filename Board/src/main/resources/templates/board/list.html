@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Board : 목록</title>
 </head>
 <body>
 	<span th:text="${totalCount}">게시글 수 </span>
@@ -26,6 +26,6 @@
 			</tr>
 		</tbody>
 	</table>
-
+	<label><a th:href="@{/board/goWrite.do}">쓰기</a></label>
 </body>
 </html>
