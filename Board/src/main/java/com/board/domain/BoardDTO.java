@@ -58,17 +58,17 @@ public class BoardDTO {
 	/**
 	 *  등록일
 	 */
-	private LocalDateTime insertTime;
+	private String insertTime;
 	
 	/**
 	 *  수정일
 	 */
-	private LocalDateTime updateTime;
+	private String updateTime;
 	
 	/**
 	 *  삭제일
 	 */
-	private LocalDateTime deleteTime;
+	private String deleteTime;
 	
 	/**
 	 *  공지여부

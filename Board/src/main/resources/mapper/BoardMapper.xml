@@ -40,7 +40,13 @@
 	
 	<select id="getBoardList" parameterType="com.board.domain.BoardDTO" resultType="com.board.domain.BoardDTO">
 		SELECT
-			<include refid="boardColumns"/>
+			  board_idx
+			, title
+			, view_count
+			, mem_id
+			, date_format(insert_time, '%Y-%m-%d') AS insert_time
+			, notice_yn
+			, secret_yn
 		FROM TB_BOARD
 		WHERE delete_yn = 'N'
 		ORDER BY  notice_yn ASC
@@ -50,7 +56,15 @@
 	
 	<select id="getBoard" parameterType="int" resultType="com.board.domain.BoardDTO">
 		SELECT
-			<include refid="boardColumns"/>
+			  board_idx
+			, title
+			, content
+			, view_count
+			, mem_id
+			, date_format(insert_time, '%Y-%m-%d') AS insert_time
+			, date_format(update_time, '%Y-%m-%d') AS update_time
+			, notice_yn
+			, secret_yn
 		FROM TB_BOARD
 		WHERE board_idx = #{boardIdx}
 		AND delete_yn = 'N'
