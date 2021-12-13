@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.board.domain.BoardDTO;
+import com.board.paging.Criteria;
 import com.board.service.BoardService;
 
 @Controller
@@ -29,14 +31,14 @@ public class BoardController {
 	 * @return
 	 */
 	@GetMapping("/list.do")
-	public ModelAndView getBoardList() {
+	public ModelAndView getBoardList(@ModelAttribute("criteria") Criteria criteria) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("board/list");
 		
-		List<BoardDTO> boardList = boardService.getBoardList();
+		List<BoardDTO> boardList = boardService.getBoardList(criteria);
 		modelAndView.addObject("boardList", boardList);
 		
-		int totalCount = boardService.getBoardTotalCount();
+		int totalCount = boardService.getBoardTotalCount(criteria);
 		modelAndView.addObject("totalCount", totalCount);
 		
 		return modelAndView;

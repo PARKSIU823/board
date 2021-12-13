@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.board.domain.BoardDTO;
 import com.board.mapper.BoardMapper;
+import com.board.paging.Criteria;
 import com.board.service.BoardService;
 
 @Service
@@ -22,8 +23,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardDTO> getBoardList() {
-		List<BoardDTO> boardList = boardMapper.getBoardList();
+	public List<BoardDTO> getBoardList(Criteria criteria) {
+		List<BoardDTO> boardList = boardMapper.getBoardList(criteria);
 		return boardList;
 	}
 
@@ -34,8 +35,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int getBoardTotalCount() {
-		int totalCount = boardMapper.getBoardTotalCount();
+	public int getBoardTotalCount(Criteria criteria) {
+		int totalCount = boardMapper.getBoardTotalCount(criteria);
 		return totalCount;
 	}
 	

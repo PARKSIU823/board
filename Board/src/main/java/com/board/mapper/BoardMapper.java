@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.board.domain.BoardDTO;
+import com.board.paging.Criteria;
 
 @Mapper
 public interface BoardMapper {
@@ -21,7 +22,7 @@ public interface BoardMapper {
 	 * 글 목록 리스트
 	 * @return
 	 */
-	public List<BoardDTO> getBoardList();
+	public List<BoardDTO> getBoardList(Criteria criteria);
 	
 	/**
 	 * 게시글 상세 조회
@@ -34,7 +35,7 @@ public interface BoardMapper {
 	 * 게시글 등록 수 조회
 	 * @return
 	 */
-	public int getBoardTotalCount();
+	public int getBoardTotalCount(Criteria criteria);
 	
 	/**
 	 * 게시글 수정

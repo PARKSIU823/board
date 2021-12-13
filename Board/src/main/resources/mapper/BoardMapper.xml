@@ -38,7 +38,7 @@
 		)
 	</insert>
 	
-	<select id="getBoardList" parameterType="com.board.domain.BoardDTO" resultType="com.board.domain.BoardDTO">
+	<select id="getBoardList" parameterType="com.board.paging.Criteria" resultType="com.board.domain.BoardDTO">
 		SELECT
 			  board_idx
 			, title
@@ -52,6 +52,7 @@
 		ORDER BY  notice_yn ASC
 				, board_idx DESC
 				, insert_time DESC
+		LIMIT #{startPage}, #{recordsPerPage}
 	</select>
 	
 	<select id="getBoard" parameterType="int" resultType="com.board.domain.BoardDTO">
@@ -70,7 +71,7 @@
 		AND delete_yn = 'N'
 	</select>
 	
-	<select id="getBoardTotalCount" parameterType="com.board.domain.BoardDTO" resultType="int">
+	<select id="getBoardTotalCount" parameterType="com.board.paging.Criteria" resultType="int">
 		SELECT count(*) FROM TB_BOARD WHERE delete_yn = 'N'
 	</select>
 	
